@@ -1,2 +1,3 @@
 #!/bin/bash
-alias [-p] [name="hello user"]
+alias [name="hello user"]
+
