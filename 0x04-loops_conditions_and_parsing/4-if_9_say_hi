@@ -2,9 +2,10 @@
 #This script to display "Best School" 10 times, the 9th iteration displays then Hi.
 i=0
 while ((i < 10)); do
-	echo "Best School"
+	echo "Holberton School"
 	if ((i == 8)); then
-	       echo "Hi"
-	if       
+		echo "Hi"
+	fi
 	((i+=1))
 done
+
