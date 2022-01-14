@@ -20,11 +20,11 @@ In Linux, every signal has a name that begins with characters SIG. For example :
 
 Lets take a small example code that explains the points mentioned above.
 
-#include<stdio.h>
+  #include<stdio.h>
 
-  int main(int argc, char *argv[])
+    int main(int argc, char *argv[])
 
-   {
+     {
    
      int count = argc;
   
