@@ -22,26 +22,27 @@ Lets take a small example code that explains the points mentioned above.
 
 #include<stdio.h>
 
-int main(int argc, char *argv[])
+  int main(int argc, char *argv[])
 
-{
-  int count = argc;
+   {
+   
+     int count = argc;
   
-    printf("\n The number of arguments passed is [%d] \n", count);
+       printf("\n The number of arguments passed is [%d] \n", count);
 
-  int c = 0;
+         int c = 0;
   
-     while(c < count)
+          while(c < count)
      
-     {
+           {
      
-      printf("\n The argument [%d] is : [%s]\n", c+1, argv[c]);
+              printf("\n The argument [%d] is : [%s]\n", c+1, argv[c]);
 
-        c++;
-     }
+               c++;
+                }
   
-    return 0;
-     }
+                  return 0;
+                     }
 
 it displays the following output:
 
