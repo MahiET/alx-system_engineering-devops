@@ -1,7 +1,21 @@
 #!/usr/bin/evn bash
 #Bash script that  "4-to infinity and beyond" process.
 
-ps -ef | grep "4-to_infinity_and_beyond"
-kill -9 "$kill_pid"
+while [ true ] 
+do
+
+  #check if script is running
+  ps | grep "4-to_infinity" | grep -v grep >/dev/null 2>&1
+
+  if [ "$!" != "0" ] ; then
+    break
+  else
+
+    kill -9 ` ps -ef | grep "4-to_infinity" | cut -d "a" -f 1` 
+    echo "kill -9 `$killing_pid`"
+
+  fi
+
+done
 
 
