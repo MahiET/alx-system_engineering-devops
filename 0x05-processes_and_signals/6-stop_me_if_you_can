@@ -1,6 +1,7 @@
-#!usr/bin/env bash
-#script that stops "4-to_infinity_and_beyond " process. You cannot use kill or killall
+#!/usr/bin/env bash
+# kills "4-to_infinity_and_beyond" process
 
-killall gedit "./4-to_infinity_and_beyond"
+pkill -f "4-to_infinity_and_beyond"
+
 
 
