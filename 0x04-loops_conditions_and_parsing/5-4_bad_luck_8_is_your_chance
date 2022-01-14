@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+#This script to display bad luck,good luck and Best School 1 to 10, the 4 and 8 iteration displays then Bad Luck and Good Luck.
+i=1
+while ((i <= 10)); do
+	if ((i == 4)); then
+		echo "bad luck"
+	elif ((i == 8)); then
+		echo "good luck"
+	else
+		echo "Best School"
+	fi
+	((i+=1))
+done
