@@ -1,5 +1,4 @@
 # script to execute a command using puppet
-exec { 'killmenow':
-  command => 'pkill killmenow',
-  path    => '/usr/bin/'
-}
+exec {'killmenow':
+  command => '/usr/bin/pkill -f killmenow'
+  }
