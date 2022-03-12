@@ -32,9 +32,10 @@ Read or watch:
 
 
 <h1>Your servers</h1>
-'''
-Name 	       Username 	     IP 	        State
 
-1563-web-01 	ubuntu 	        34.148.195.57 	        running
-'''
+
+                   Name 	       Username 	     IP 	        State
+
+                    1563-web-01 	ubuntu 	        34.148.195.57 	        running
+
 
