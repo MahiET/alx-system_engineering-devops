@@ -11,7 +11,7 @@ echo "frontend http
         default_backend web-backend
     backend web-backend
         balance roundrobin
-        server 1563-web-01 34.148.195.57
-        server 1563-web-02 34.239.171.169" >> /etc/haproxy/haproxy.cfg
+        server 1563-web-01 34.148.195.57:80 check
+        server 1563-web-02 34.239.171.169:80 check" >> /etc/haproxy/haproxy.cfg
 
 service haproxy restart
