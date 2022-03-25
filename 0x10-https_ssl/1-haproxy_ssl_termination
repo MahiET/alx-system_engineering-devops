@@ -1,8 +1,8 @@
 global
-	log /dev/loglocal0
-	log /dev/loglocal1 notice
+	log /dev/log   local0
+	log /dev/log   local1 notice
 	chroot /var/lib/haproxy
-        stats socket /run/haproxy/admin.sock mode 660 level admin expose-fd listeners
+        stats socket /run/haproxy/admin.sock mode 660 level admin 
 	stats timeout 30s
         user haproxy
         group haproxy
@@ -37,11 +37,15 @@ defaults
 	errorfile 504 /etc/haproxy/errors/504.http
 
 frontend http
-        bind *:79
-        mode http
+        bind *:80
+        redirect scheme https code 301 if !{ ssl_fc }
         default_backend web-backend
+	
+backend letsencrypt-backend
+	server letsencrypt 127.0.0.1:8888
 
 backend web-backend
+        redirect scheme https if !{ ssl_fc }
         balance roundrobin
-        server 1563-web-01 34.148.195.57
-        server 1563-web-02 34.239.171.169
+        server 1563-web-01 34.148.195.57:80 check
+        server 1563-web-02 34.239.171.169:80 check
