@@ -2,16 +2,13 @@
 # shellcheck disable=SC2086
 # Information about server domains
 
-check_domain() {
-    # Check for a valid domain
-        SUBDOMAINS=("www"  "lb-01" "web-01" "web-02")
-	    if [ -z "$2" ]; then
-	       for i in "${SUBDOMAINS[@]}"; do
-	       	       dig "$i.$1" | grep -A1 'ANSWER SECTION:' | tail -n1 | awk '{split($0, SUBDOMAIN, "."); print "The subdomain " SUBDOMAIN[1] " is a " $4 " record and points to " $5}'
-		       	   done
-			       else
-				dig "$2.$1" | grep -A1 'ANSWER SECTION:' | tail -n1 | awk '{split($0, SUBDOMAIN, "."); print "The subdomain " SUBDOMAIN[1] " is a " $4 " record and points to " $5}'
-				    fi
-				    }
-
-check_domain "$1" "$2"
+domain=$1
+if [ "$#" -eq 2 ]; then
+    sub=$2
+else
+    sub=("www" "lb-01" "web-01" "web-02")
+fi
+for subdomain in "${sub[@]}"; do
+    echo -n "The subdomain $subdomain"
+    dig "$subdomain.$domain" | grep -A1 'ANSWER SECTION:' | tail -n -1 | awk '{ print " is a " $4 " record and points to " $5}'
+    done
