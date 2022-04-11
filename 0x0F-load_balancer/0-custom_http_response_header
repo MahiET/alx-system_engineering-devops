@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # Automatizing the nginx configuration
 sudo apt-get -y install nginx
-echo "Hello World!" | sudo /var/www/html/index.nginx-debian.html
+echo "Hello World!" | sudo /var/www/html/index.html
 redirect="location /redirect_me {\nrewrite ^/(.*)$ https://www.youtube.com/watch?v=QH2-TGUlwu4 permanen\
 t;\n}\n"
 sed -i "/# Only/ i $redirect" /etc/nginx/sites-available/default
@@ -10,6 +10,6 @@ replace="#error_page"
 redirect="error_page"
 sed -i "s/$replace/$redirect/" /etc/nginx/sites-available/default
 served_by="add_header X-Served-By $(cat /etc/hostname);"
-sudo sed -i "/index.nginx-debian.html;/ a $served_by" /etc/nginx/sites-enabled/default
+sudo sed -i "/index.html;/ a $served_by" /etc/nginx/sites-enabled/default
 sudo service nginx restart
 
