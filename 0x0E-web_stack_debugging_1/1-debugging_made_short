@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+# script to fix and make 0 better
+cp -f /etc/nginx/sites-available/default /etc/nginx/sites-enabled/default
+service nginx restart
+echo '9791' | sudo tee /run/nginx.pid
