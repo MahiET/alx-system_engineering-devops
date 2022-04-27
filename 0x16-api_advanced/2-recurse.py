@@ -1,4 +1,5 @@
 #!/usr/bin/python3
+'''Get ALL articles for a given subreddit'''
 import pprint
 import requests
 
@@ -6,11 +7,8 @@ BASE_URL = 'http://reddit.com/r/{}/hot.json'
 
 
 def recurse(subreddit, hot_list=[], after=None):
-    """recursive function that queries the Reddit API and returns a list
-    containing the titles of all hot articles for a given subreddit. If no
-    results are found for the given subreddit, the function should return None.
-    """
-     headers = {'User-agent': 'Unix:0-subs:v1'}
+    ''' function recurse :Get ALL hot posts'''
+    headers = {'User-agent': 'Unix:0-subs:v1'}
     params = {'limit': 100}
     if isinstance(after, str):
         if after != "STOP":
