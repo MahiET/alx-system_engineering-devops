@@ -1,3 +1,10 @@
 # Fix the nginx requests limit
-exec { '/usr/bin/env sed -i s/15/1000/ /etc/default/nginx': }
--> exec { '/usr/bin/env service nginx restart': }
+exec { 'upgrade':
+  path    => '/bin/',
+  command => 'sed -i "s/15/4096" /etc/default/nginx',
+}
+
+exec { 'restart':
+  path    => '/usr/bin/',
+  command => 'service nginx restart',
+}
